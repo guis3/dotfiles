@@ -1,0 +1,51 @@
+## Aliases
+# Open configs
+alias zshrc='vim ~/.config/zsh/.zshrc'
+alias bspwmrc='vim ~/.config/bspwm/bspwmrc'
+alias picom.conf='vim ~/.config/picom/picom.conf'
+alias sxhkdrc='vim ~/.config/sxhkd/sxhkdrc'
+alias alacritty.yml='vim ~/.config/alacritty/alacritty.yml'
+alias zshr='source ~/.config/zsh/.zshrc'
+alias xinitrc='vim /etc/X11/xinit/xinitrc.d/60-autostart.sh'
+
+# pretty commands
+alias l='ptls -a'
+alias ll='ptls -al'
+alias pwd='ptpwd'
+alias cp='ptcp'
+
+# git
+alias gcl='git clone'
+alias gst='git status'
+alias gi='git init'
+alias ga='git add'
+alias gr='git restore --staged'
+alias gc='git commit -m'
+alias gp='git push origin main'
+
+alias dot='git --git-dir=$HOME/Repos/dotfiles --work-tree=$HOME'
+
+# pacman
+alias pacs='sudo pacman -S'
+alias pacr='sudo pacman -Rcns'
+alias pacu='sudo pacman -Syyu'
+alias paco='sudo pacman -Rs $(pacman -Qtdq)'
+alias pacq='pacman -Qs'
+
+# yay
+alias yays='yay -S'
+alias yayr='yay -R'
+alias yayu='yay -Syyu'
+
+# grep
+alias grep='grep --color=auto'
+
+# Nvim
+alias vim='nvim'
+alias svim='sudoedit'
+
+# Misc
+alias code='vscodium'
+alias ..='cd ..'
+alias bonsai='cbonsai -S --time 0.05 --life 55 --multiplier 8 --base 1'
+alias pipes='pipes.sh -p 1 -f 30 -r 1500'

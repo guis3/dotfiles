@@ -1,0 +1,58 @@
+# CUSTOM FUNCTIONS
+
+# Refresh zsh config
+function zsh_reload() {
+	exec zsh
+}
+
+# Import config files
+function zsh_add_file() {
+	[ -f "$ZDOTDIR/$1" ] && source "$ZDOTDIR/$1"
+}
+
+# Source Plugins
+function zsh_add_plugin() {
+	PLUGIN_NAME=$1
+	if [ -d "$ZDOTDIR/plugins/$PLUGIN_NAME" ]; then
+		zsh_add_file "plugins/$PLUGIN_NAME/$PLUGIN_NAME.zsh"
+		zsh_add_file "plugins/$PLUGIN_NAME/$PLUGIN_NAME.plugin.zsh"
+	fi
+}
+
+# Install plugins from git
+function zsh_install_plugin() {
+	URL=$1
+	PLUGIN_NAME=$(echo $1 | awk -F/ '{print $(NF)}')
+	if [ ! -d "$ZDOTDIR/plugins/$PLUGIN_NAME" ]; then
+		echo "Installing $PLUGIN_NAME to:\n$ZDOTDIR/$PLUGIN_NAME...\n"
+		git clone $URL "$ZDOTDIR/plugins/$PLUGIN_NAME" 
+		echo "\n!! Add 'zsh_add_plugin \"$PLUGIN_NAME\"' in your .zshrc"
+		zsh_refresh_config
+	else
+		echo "$PLUGIN_NAME is already installed to:\n$ZDOTDIR/plugins/$PLUGIN_NAME"
+	fi
+}
+
+# Remove plugin
+function zsh_remove_plugin() {
+	PLUGIN_NAME=$1
+	if [ -d "$ZDOTDIR/plugins/$PLUGIN_NAME" ]; then
+		echo "Removing $PLUGIN_NAME from:\n$ZDOTDIR/plugins/$PLUGIN_NAME..."
+		rm -rf "$ZDOTDIR/plugins/$PLUGIN_NAME"
+		echo "\n!! Remove 'zsh_add_plugin \"$PLUGIN_NAME\"' from your .zshrc"
+		zsh_refresh_config
+	else
+		echo "$PLUGIN_NAME plugin is not installed"
+	fi
+}
+
+# Streamlink
+function zsh_watch_twitch() {
+  CHANNEL=$1
+  QUALITY=$2
+  echo "Launching mpv..."
+  streamlink -p mpv "https://twitch.tv/$CHANNEL" best &
+  disown
+}
+
+
