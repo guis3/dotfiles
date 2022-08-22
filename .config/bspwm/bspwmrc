@@ -10,7 +10,7 @@ pgrep -x sxhkd > /dev/null || sxhkd &
 
 ## Workspaces
 bspc monitor HDMI-0 -d ' ' ' ' ' ' ' ' ' ' ' ' ' '
-bspc monitor HDMI-1 -d ' ' ' ' 'ﭮ ' ' ' ' ' ' '
+bspc monitor HDMI-1 -d ' ' ' ' ' ' ' ' ' ' ' '
 
 ## bspwm options
 bspc config border_width         0
@@ -28,7 +28,7 @@ bspc config gapless_tiled         true
 bspc config single_tiled          false
 
 # No border padding in monocle
-for side in right bottom left; do bspc config ${side}_monocle_padding -8; done
+for side in right bottom left; do bspc config ${side}_monocle_padding -9; done
 bspc config top_monocle_padding   -9
 
 ## Manage all the unmanaged windows remaining from a previous session.
@@ -54,8 +54,9 @@ bspc rule -a VSCodium desktop=^10 state=tiled follow=on focus=on
 bspc rule -a Steam desktop=^12 state=floating follow=on focus=on border=off center=true rectangle=1100x800+0+0
 bspc rule -a airshipper desktop=^12 state=floating follow=on focus=on center=true rectangle=1100x800+0+0
 bspc rule -a steam_app_1313140 desktop=^12 state=fullscreen follow=off focus=off
-# Discord
-bspc rule -a discord desktop=^3 state=tiled follow=on focus=on
+# Communication
+bspc rule -a discord desktop=^3 state=tiled follow=on focus=off
+bspc rule -a "Microsoft Teams - Preview" desktop=^3 state=tiled follow=on focus=on
 # Settings
 bspc rule -a Nitrogen desktop=^13 state=floating follow=on focus=on center=true border=off rectangle=1100x800+0+0
 bspc rule -a Lxappearance desktop=^13 state=floating follow=on focus=on center=true border=off rectangle=1100x800+0+0
