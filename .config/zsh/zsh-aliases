@@ -40,7 +40,6 @@ alias pacq='pacman -Qs'
 
 # yay
 alias yays='yay -S'
-alias yayr='yay -R'
 alias yayu='yay -Syyu'
 
 # Apps
