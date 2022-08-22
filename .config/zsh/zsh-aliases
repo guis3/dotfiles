@@ -23,7 +23,12 @@ alias gr='git restore --staged'
 alias gc='git commit -m'
 alias gp='git push origin main'
 
-alias dot='git --git-dir=$HOME/Repos/dotfiles --work-tree=$HOME'
+# dot
+alias dots='dot status'
+alias dota='dot add'
+alias dotr='dot restore --staged'
+alias dotc='dot commit -m'
+alias dotp='dot push'
 
 # pacman
 alias pacs='sudo pacman -S'

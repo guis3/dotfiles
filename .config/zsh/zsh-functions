@@ -5,6 +5,12 @@ function zsh_reload() {
 	exec zsh
 }
 
+# dot alias
+function dot() {
+  git --git-dir=$HOME/Repos/dotfiles --work-tree=$HOME
+}
+
+
 # Import config files
 function zsh_add_file() {
 	[ -f "$ZDOTDIR/$1" ] && source "$ZDOTDIR/$1"
