@@ -24,6 +24,7 @@ alias gc='git commit -m'
 alias gp='git push origin main'
 
 # dot
+alias dot='git --git-dir=$HOME/Repos/dotfiles --work-tree=$HOME'
 alias dots='dot status'
 alias dota='dot add'
 alias dotr='dot restore --staged'
@@ -54,3 +55,4 @@ alias code='vscodium'
 alias ..='cd ..'
 alias bonsai='cbonsai -S --time 0.05 --life 55 --multiplier 8 --base 1'
 alias pipes='pipes.sh -p 1 -f 30 -r 1500'
+alias cat='bat'
