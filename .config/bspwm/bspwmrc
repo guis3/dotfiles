@@ -1,5 +1,9 @@
 #! /bin/sh
 
+##########################
+#      BSPWM CONFIG      #
+##########################
+
 ## Bspwm config directory
 BSPDIR="$HOME/.config/bspwm"
 
@@ -28,7 +32,7 @@ bspc config gapless_tiled         true
 bspc config single_tiled          false
 
 # No border padding in monocle
-for side in right bottom left; do bspc config ${side}_monocle_padding -9; done
+for side in right bottom left; do bspc config ${side}_monocle_padding -8; done
 bspc config top_monocle_padding   -9
 
 ## Manage all the unmanaged windows remaining from a previous session.
@@ -65,6 +69,4 @@ bspc rule -a via-nativia desktop=^13 state=floating follow=on focus=on center=tr
 
 ## Autorun
 bash ~/.config/polybar/scripts/launch.sh &
-
-
 
