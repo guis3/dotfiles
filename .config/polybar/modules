@@ -1,0 +1,246 @@
+;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+
+[module/sep]
+type = custom/text
+content = |
+content-padding = 1
+content-foreground = ${colors.altblack} 
+content-background = ${colors.background}
+
+;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+
+; BSPWM
+[module/mod]
+type = internal/bspwm
+
+format = <label-mode>
+format-background = ${colors.yellow}
+format-foreground = ${colors.background}
+format-font = 2
+format-padding = 1
+
+label-monocle = "Monocle"
+label-tiled = "Tiled"
+
+label-floating = ", Float"
+label-pseudotiled = ", Pseudo"
+label-fullscreen = ", Full"
+
+label-locked = " | Locked"
+label-sticky = " | Sticky"
+label-private = " | Private"
+
+[module/xwindow]
+type = internal/xwindow
+
+label = "%title%"
+label-maxlen = 20
+
+format-foreground = ${colors.foreground}
+format-background = ${colors.background}
+format-font = 2
+
+; BSPWM
+[module/bspwm]
+type = internal/bspwm
+
+pin-workspaces = true
+inline-mode = false
+
+enable-click = true
+enable-scroll = true
+reverse-scroll = true
+
+fuzzy-match = true
+
+; ws-icon-[0-9]+ = label;icon
+; Note that the label needs to correspond with the bspwm workspace name
+ws-icon-0 = I;
+ws-icon-1 = II;
+ws-icon-2 = III;
+ws-icon-3 = IV;
+ws-icon-4 = V;
+ws-icon-5 = VI;
+ws-icon-6 = VII;
+ws-icon-7 = VIII;
+ws-icon-default = 
+
+format = <label-state>
+format-padding = 1
+format-font = 2
+
+label-monitor = %name%
+
+; If any values for label-dimmed-N are defined, the workspace/mode
+; colors will get overridden with those values if the monitor is out of focus
+; To only override workspaces in a specific state, use:
+;   label-dimmed-focused
+;   label-dimmed-occupied
+;   label-dimmed-urgent
+;   label-dimmed-empty
+;label-dimmed-foreground = ${colors.foreground}
+;label-dimmed-underline = ${colors.yellow}
+;label-dimmed-focused-background = ${colors.background}
+
+label-focused = %name%
+label-focused-foreground = ${colors.cyan}
+label-focused-background = ${colors.background}
+label-focused-underline = ${colors.cyan}
+label-focused-padding = 1
+
+label-occupied = %name%
+label-occupied-foreground = ${colors.pink}
+label-occupied-background = ${colors.background}
+;label-occupied-underline = ${colors.green}
+label-occupied-padding = 1
+
+label-urgent = %name%
+label-urgent-foreground = ${colors.red}
+label-urgent-background = ${colors.background}
+label-urgent-underline = ${colors.red}
+label-urgent-padding = 1
+
+label-empty = %name%
+label-empty-foreground = ${colors.foreground}
+label-empty-padding = 1
+
+; Separator in between workspaces
+label-separator = "·"
+label-separator-padding = 0
+label-separator-font = 2
+label-separator-foreground = ${colors.altblack}
+
+
+[module/cpu]
+type = internal/cpu
+interval = 2
+format-prefix = ""
+format-prefix-font = 4
+format-prefix-foreground = ${colors.purple}
+format-prefix-background = ${colors.background}
+
+label = "%percentage%% "
+label-background = ${colors.background}
+label-foreground = ${colors.foreground}
+label-padding = 1
+
+[module/memory]
+type = internal/memory
+interval = 2
+format-prefix = "ﲭ"
+format-prefix-font = 3
+format-prefix-foreground = ${colors.cyan}
+format-prefix-background = ${colors.background}
+
+label = "%gb_used% "
+label-background = ${colors.background}
+label-foreground = ${colors.foreground}
+label-padding = 1
+
+[module/date]
+type = internal/date
+interval = 5
+
+time = "%l:%M"
+time-alt = " %b %e, %G"
+label-background = ${colors.background}
+label-foreground = ${colors.foreground}
+label-font = 2
+label-padding = 0
+
+format-prefix = " "
+format-prefix-foreground = ${colors.yellow}
+format-prefix-background = ${colors.background}
+format-prefix-font = 3
+format-padding = 2 
+
+label =%time%
+
+[module/alsa]
+type = internal/alsa
+
+format-volume = <ramp-volume><label-volume>
+label-volume = "%percentage%% "
+label-volume-foreground = ${colors.foreground}
+label-volume-padding = 1
+
+format-muted-prefix = ""
+format-muted-foreground = ${colors.red}
+format-muted-font = 3
+
+label-muted = "Muted"
+label-muted-padding = 1
+
+ramp-volume-0 = ""
+ramp-volume-1 = ""
+ramp-volume-2 = ""
+ramp-volume-0-foreground = ${colors.red}
+ramp-volume-1-foreground = ${colors.yellow}
+ramp-volume-2-foreground = ${colors.green}
+ramp-volume-font = 3
+
+click-right = exec pavucontrol &
+
+[module/title]
+type = internal/xwindow
+format = <label>
+format-font = 2
+
+label-maxlen = 35
+label = %title%
+
+[module/weather]
+type = custom/script
+exec = ~/.config/polybar/scripts/openweathermap.sh
+
+interval = 600
+label-font = 5
+label-foreground = ${colors.foreground}
+
+click-left = firefox https://openweathermap.org/city/5937612
+
+[module/updates]
+type = custom/script
+exec = ~/.config/polybar/scripts/pacman-aur-updates.sh
+interval = 600
+
+format = <label>
+format-padding = 2
+format-prefix = " "
+format-prefix-font = 4
+format-prefix-foreground = ${colors.yellow}
+
+[module/wpm]
+type = custom/script
+exec = ~/.config/polybar/scripts/info-hackspeed.sh
+
+format = <label>
+format-font = 2
+format-foreground = ${colors.foreground}
+format-padding = 0
+
+format-prefix = " "
+format-prefix-font = 4
+format-prefix-foreground = ${colors.blue}
+
+tail = true
+
+
+[module/network]
+type = internal/network
+interface = wlp3s0
+interval = 2
+
+label-connected = "直 %downspeed% "
+label-connected-background = ${colors.background}
+
+label-disconnected = "睊 Disconnected "
+label-disconnected-foreground = ${colors.red}
+
+label-connected-padding = 0
+
+[module/tray]
+type = custom/script
+exec = echo " "
+
+click-left = bash $HOME/.config/polybar/scripts/tray.sh
