@@ -46,13 +46,3 @@ function zsh_remove_plugin() {
 	fi
 }
 
-# Streamlink
-function zsh_watch_twitch() {
-  CHANNEL=$1
-  QUALITY=$2
-  echo "Launching mpv..."
-  streamlink -p mpv "https://twitch.tv/$CHANNEL" best &
-  disown
-}
-
-
