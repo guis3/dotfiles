@@ -147,6 +147,7 @@ return require('packer').startup(function()
   use 'mattesgroeger/vim-bookmarks'
   use 'farmergreg/vim-lastplace'
   use 'lambdalisue/suda.vim'
+  use 'lukas-reineke/indent-blankline.nvim'
 
   -- Syntax Highlighting and Colors --
   use 'kovetskiy/sxhkd-vim'
@@ -213,15 +214,19 @@ A.nvim_set_var('bookmark_auto_close', '1')
 vim.cmd([[highlight BookmarkAnnotationSign ctermbg=NONE guifg=#F9E2AF]])
 vim.cmd([[highlight BookmarkSign ctermbg=NONE guifg=#F38BA8]])
 
+-- NERDTree
+A.nvim_set_var('NERDTreeShowHidden', '1')
 
--- Lualine config
+-- Lualine
 require('lualine').setup {
   options = {
     icons_enabled = true,
     theme = 'palenight',
     component_separators = { left = '', right = ''},
     section_separators = { left = '', right = ''},
-    extensions = {'nerdtree'}
+    globalstatus = true,
+    extensions = {'nerdtree'},
+    ignore_focus = {'nerdtree'}
   }
 }
 
