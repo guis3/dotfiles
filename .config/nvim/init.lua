@@ -5,21 +5,18 @@ local o   = vim.o
 local opt = vim.opt
 local A   = vim.api
 
--- cmd('syntax on')
--- vim.api.nvim_command('filetype plugin indent on')
+vim.api.nvim_command('filetype plugin indent on')
+vim.api.nvim_command('syntax on')
 
 o.termguicolors = true
 -- o.background = 'dark'
-
--- Do not save when switching buffers
--- o.hidden = true
 
 -- Decrease update time
 o.timeoutlen = 500
 o.updatetime = 200
 
 -- Number of screen lines to keep above and below the cursor
-o.scrolloff = 7
+o.scrolloff = 6
 
 -- Better editor UI
 o.number = true
@@ -41,7 +38,6 @@ o.softtabstop = -1 -- If negative, shiftwidth value is used
 o.showmatch = 0
 o.list = true
 
--- o.listchars = 'eol:¬,space:·,lead: ,trail:·,nbsp:◇,tab:→-,extends:▸,precedes:◂,multispace:···⬝,leadmultispace:│   ,'
 -- o.formatoptions = 'qrn1'
 o.listchars = 'trail:·,nbsp:◇,tab:→ ,extends:▸,precedes:◂'
 
@@ -90,12 +86,10 @@ A.nvim_create_autocmd('TextYankPost', {
     end,
 })
 
-
 -- COLORSCHEMES
 g.catppuccin_flavour = "mocha"
 require("catppuccin").setup()
 vim.cmd [[colorscheme catppuccin]]
-
 
 -----------------
 -- KEYBINDINGS
@@ -112,6 +106,8 @@ g.maplocalleader= " "
 map('i', '<C-E>', '<ESC>A')
 map('i', '<C-A>', '<ESC>I')
 
+map('n', '<A-i>', '<CMD>lua require("FTerm").toggle()<CR>')
+
 --------------
 -- COMMANDS --
 --------------
@@ -121,7 +117,7 @@ A.nvim_create_user_command('W', 'SudaWrite', {bang = true, desc = ':SudaWrite'})
 -------------
 -- PLUGINS --
 -------------
-return require('packer').startup(function()
+return require('packer').startup(function(use)
   -- Packer
   use 'wbthomason/packer.nvim'
 
@@ -141,7 +137,6 @@ return require('packer').startup(function()
   use 'tpope/vim-surround'
   use 'ackyshake/vimcompletesme'
   use 'junegunn/fzf.vim'
-  use 'junegunn/limelight.vim'
   use 'lewis6991/impatient.nvim'
   use 'jiangmiao/auto-pairs'
   use 'mattesgroeger/vim-bookmarks'
@@ -152,54 +147,148 @@ return require('packer').startup(function()
   -- Syntax Highlighting and Colors --
   use 'kovetskiy/sxhkd-vim'
   use 'ap/vim-css-color'
-  use 'frazrepo/vim-rainbow'
+  use 'numtostr/fterm.nvim'
+  use 'nvim-treesitter/nvim-treesitter'
 
   -- Colorschemes
   use {"catppuccin/nvim", as = "catppuccin" }
 
   -- Alpha dashboard
-use {
+  use {
     "goolord/alpha-nvim",
     config = function ()
-        local alpha = require'alpha'
-        local dashboard = require'alpha.themes.dashboard'
-        dashboard.section.header.val = {
-          [[     )            )             (        *     ]],
-          [[  ( /(         ( /(             )\ )   (  `    ]],
-          [[  )\())  (     )\())   (   (   (()/(   )\))(   ]],
-          [[ ((_)\   )\   ((_)\    )\  )\   /(_)) ((_)()\  ]],
-          [[  _((_) ((_)    ((_)  ((_)((_) (_))   (_()((_) ]],
-          [[ | \| | | __|  / _ \  \ \ / /  |_ _|  |  \/  | ]],
-          [[ | .` | | _|  | (_) |  \ V /    | |   | |\/| | ]],
-          [[ |_|\_| |___|  \___/    \_/    |___|  |_|  |_| ]],
-        }
-        -- dashboard.section.header.val = {
-        --   [[                               __                ]],
-        --   [[  ___     ___    ___   __  __ /\_\    ___ ___    ]],
-        --   [[ / _ `\  / __`\ / __`\/\ \/\ \\/\ \  / __` __`\  ]],
-        --   [[/\ \/\ \/\  __//\ \_\ \ \ \_/ |\ \ \/\ \/\ \/\ \ ]],
-        --   [[\ \_\ \_\ \____\ \____/\ \___/  \ \_\ \_\ \_\ \_\]],
-        --   [[ \/_/\/_/\/____/\/___/  \/__/    \/_/\/_/\/_/\/_/]],
-        --   [[]],
-        -- }
-        dashboard.section.buttons.val = {
-          dashboard.button("e", "  New file", "<cmd>ene <CR>"),
-          dashboard.button("f", "  Find file", ":FZF<CR>"),
-          dashboard.button("h", "  Recently opened files", ":History<CR>"),
-          dashboard.button("n", "  NerdTree", "<cmd>:NERDTree<CR>"),
-          dashboard.button("m", "  Bookmarks", "<cmd>:BookmarkShowAll<CR>"),
-          dashboard.button("c", "  Configuration", "<cmd>:e ~/.config/nvim/init.lua <CR>"),
-          dashboard.button("u", "  Update plugins", "<cmd>PackerSync<CR>"),
-          dashboard.button("q", "  Quit NVIM", ":qa<CR>"),
-        }
+      local alpha = require'alpha'
+      local dashboard = require'alpha.themes.dashboard'
 
-        local handle = io.popen('fortune')
-        local fortune = handle:read("*a")
-        handle:close()
-        dashboard.section.footer.val = fortune
-        alpha.setup(dashboard.opts)
-    end
-}
+      math.randomseed(os.time())
+      local colors = {"String", "Identifier", "Keyword", "Number"}
+      local function pick_color()
+        return colors[math.random(#colors)]
+      end
+
+      local function footer()
+        local total_plugins = #vim.tbl_keys(packer_plugins)
+        local datetime= os.date("  %d-%m-%Y    %H:%M:%S")
+        local version = vim.version()
+        local nvim_version_info = "    v" .. version.major .. "." .. version.minor .. "." .. version.patch
+        return datetime .. "    " .. total_plugins .. " plugins" .. nvim_version_info
+      end
+
+      local header = {
+        [[  ███▄    █ ▓█████  ▒█████   ██▒   █▓ ██▓ ███▄ ▄███▓ ]],
+        [[  ██ ▀█   █ ▓█   ▀ ▒██▒  ██▒▓██░   █▒▓██▒▓██▒▀█▀ ██▒ ]],
+        [[ ▓██  ▀█ ██▒▒███   ▒██░  ██▒ ▓██  █▒░▒██▒▓██    ▓██░ ]],
+        [[ ▓██▒  ▐▌██▒▒▓█  ▄ ▒██   ██░  ▒██ █░░░██░▒██    ▒██  ]],
+        [[ ▒██░   ▓██░░▒████▒░ ████▓▒░   ▒▀█░  ░██░▒██▒   ░██▒ ]],
+        [[ ░ ▒░   ▒ ▒ ░░ ▒░ ░░ ▒░▒░▒░    ░ ▐░  ░▓  ░ ▒░   ░  ░ ]],
+        [[ ░ ░░   ░ ▒░ ░ ░  ░  ░ ▒ ▒░    ░ ░░   ▒ ░░  ░      ░ ]],
+        [[    ░   ░ ░    ░   ░ ░ ░ ▒       ░░   ▒ ░░      ░    ]],
+        [[          ░    ░  ░    ░ ░        ░   ░         ░    ]],
+        [[                                 ░                   ]],
+      }
+
+      -- local header = {
+      --   [[                                          _.oo. ]],
+      --   [[                  _.u[[/;:,.         .odMMMMMM' ]],
+      --   [[               .o888UU[[[/;:-.  .o@P^    MMM^   ]],
+      --   [[              oN88888UU[[[/;::-.        dP^     ]],
+      --   [[             dNMMNN888UU[[[/;:--.   .o@P^       ]],
+      --   [[            ,MMMMMMN888UU[[/;::-. o@^           ]],
+      --   [[            NNMMMNN888UU[[[/~.o@P^              ]],
+      --   [[            888888888UU[[[/o@^-..               ]],
+      --   [[           oI8888UU[[[/o@P^:--..                ]],
+      --   [[        .@^  YUU[[[/o@^;::---..                 ]],
+      --   [[      oMP     ^/o@P^;:::---..                   ]],
+      --   [[   .dMMM    .o@^ ^;::---...                     ]],
+      --   [[  dMMMMMMM@^`       `^^^^                       ]],
+      --   [[ YMMMUP^                                        ]],
+      --   [[  ^^                                            ]],
+      -- }
+
+      -- local header = {
+      --   [[                                    ]],
+      --   [[   ⣴⣶⣤⡤⠦⣤⣀⣤⠆     ⣈⣭⣿⣶⣿⣦⣼⣆           ]],
+      --   [[    ⠉⠻⢿⣿⠿⣿⣿⣶⣦⠤⠄⡠⢾⣿⣿⡿⠋⠉⠉⠻⣿⣿⡛⣦        ]],
+      --   [[          ⠈⢿⣿⣟⠦ ⣾⣿⣿⣷    ⠻⠿⢿⣿⣧⣄      ]],
+      --   [[           ⣸⣿⣿⢧ ⢻⠻⣿⣿⣷⣄⣀⠄⠢⣀⡀⠈⠙⠿⠄     ]],
+      --   [[          ⢠⣿⣿⣿⠈    ⣻⣿⣿⣿⣿⣿⣿⣿⣛⣳⣤⣀⣀    ]],
+      --   [[   ⢠⣧⣶⣥⡤⢄ ⣸⣿⣿⠘  ⢀⣴⣿⣿⡿⠛⣿⣿⣧⠈⢿⠿⠟⠛⠻⠿⠄   ]],
+      --   [[  ⣰⣿⣿⠛⠻⣿⣿⡦⢹⣿⣷   ⢊⣿⣿⡏  ⢸⣿⣿⡇ ⢀⣠⣄⣾⠄    ]],
+      --   [[ ⣠⣿⠿⠛ ⢀⣿⣿⣷⠘⢿⣿⣦⡀ ⢸⢿⣿⣿⣄ ⣸⣿⣿⡇⣪⣿⡿⠿⣿⣷⡄   ]],
+      --   [[ ⠙⠃   ⣼⣿⡟  ⠈⠻⣿⣿⣦⣌⡇⠻⣿⣿⣷⣿⣿⣿ ⣿⣿⡇ ⠛⠻⢷⣄  ]],
+      --   [[      ⢻⣿⣿⣄   ⠈⠻⣿⣿⣿⣷⣿⣿⣿⣿⣿⡟ ⠫⢿⣿⡆      ]],
+      --   [[       ⠻⣿⣿⣿⣿⣶⣶⣾⣿⣿⣿⣿⣿⣿⣿⣿⡟⢀⣀⣤⣾⡿⠃      ]],
+      -- }
+
+      -- local header = {
+      --   [[                                                                       ]],
+      --   [[                                                                     ]],
+      --   [[       ████ ██████           █████      ██                     ]],
+      --   [[      ███████████             █████                             ]],
+      --   [[      █████████ ███████████████████ ███   ███████████   ]],
+      --   [[     █████████  ███    █████████████ █████ ██████████████   ]],
+      --   [[    █████████ ██████████ █████████ █████ █████ ████ █████   ]],
+      --   [[  ███████████ ███    ███ █████████ █████ █████ ████ █████  ]],
+      --   [[ ██████  █████████████████████ ████ █████ █████ ████ ██████ ]],
+      --   [[                                                                       ]],
+      -- }
+
+      -- local header = {
+      --   [[     )            )             (        *     ]],
+      --   [[  ( /(         ( /(             )\ )   (  `    ]],
+      --   [[  )\())  (     )\())   (   (   (()/(   )\))(   ]],
+      --   [[ ((_)\   )\   ((_)\    )\  )\   /(_)) ((_)()\  ]],
+      --   [[  _((_) ((_)    ((_)  ((_)((_) (_))   (_()((_) ]],
+      --   [[ | \| | | __|  / _ \  \ \ / /  |_ _|  |  \/  | ]],
+      --   [[ | .` | | _|  | (_) |  \ V /    | |   | |\/| | ]],
+      --   [[ |_|\_| |___|  \___/    \_/    |___|  |_|  |_| ]],
+      -- }
+
+      -- local header = {
+      --   [[]],
+      --   [[                               __                ]],
+      --   [[  ___     ___    ___   __  __ /\_\    ___ ___    ]],
+      --   [[ / _ `\  / __`\ / __`\/\ \/\ \\/\ \  / __` __`\  ]],
+      --   [[/\ \/\ \/\  __//\ \_\ \ \ \_/ |\ \ \/\ \/\ \/\ \ ]],
+      --   [[\ \_\ \_\ \____\ \____/\ \___/  \ \_\ \_\ \_\ \_\]],
+      --   [[ \/_/\/_/\/____/\/___/  \/__/    \/_/\/_/\/_/\/_/]],
+      -- }
+
+      local buttons = {
+        { type = "text", val = "Quick Links", opts = { hl = "String", position = "center" } },
+        dashboard.button("e", "  New file", "<cmd>ene <CR>"),
+        dashboard.button("f", "  Find file", ":FZF<CR>"),
+        dashboard.button("h", "  Recently opened files", ":History<CR>"),
+        dashboard.button("n", "  NerdTree", "<cmd>:NERDTree<CR>"),
+        dashboard.button("m", "  Bookmarks", "<cmd>:BookmarkShowAll<CR>"),
+        dashboard.button("c", "  Configuration", "<cmd>:e ~/.config/nvim/init.lua <CR>"),
+        dashboard.button("u", "  Update plugins", "<cmd>PackerSync<CR>"),
+        dashboard.button("q", "  Quit NVIM", ":qa<CR>"),
+        { type = "padding", val = 0 },
+      }
+
+      dashboard.section.header.val = header
+      -- dashboard.section.header.opts.hl = pick_color()
+      dashboard.section .header.opts.hl = "Conditional"
+
+      dashboard.section.buttons.val = buttons
+      dashboard.section.buttons.opts.spacing = 1
+
+      dashboard.section.footer.val = footer()
+      dashboard.section.footer.opts.hl = "Comment"
+
+      alpha.setup(dashboard.opts)
+
+      vim.cmd([[ autocmd FileType alpha setlocal nofoldenable ]])
+      vim.cmd([[ autocmd User AlphaReady set showtabline=0 | autocmd BufUnload <buffer> set showtabline=1 ]])
+    end,
+  }
+
+
+-- config = {
+--   package_root = "$HOME/.config/nvim/plugin"
+-- }
+
 
 -- Plugin options
 -- fzf
@@ -207,7 +296,6 @@ A.nvim_set_var('fzf_preview_window', {'right:hidden', 'ctrl-/'})
 
 -- vim-bookmarks
 A.nvim_set_var('bookmark_sign', '留')
--- A.nvim_set_var('bookmark_sign', '')
 A.nvim_set_var('bookmark_annotation_sign', '留')
 A.nvim_set_var('bookmark_display_annotation', '1')
 A.nvim_set_var('bookmark_auto_close', '1')
@@ -216,6 +304,14 @@ vim.cmd([[highlight BookmarkSign ctermbg=NONE guifg=#F38BA8]])
 
 -- NERDTree
 A.nvim_set_var('NERDTreeShowHidden', '1')
+A.nvim_set_var('NERDTreeWinSize', '35')
+A.nvim_set_var('NERDTreeMinimalUI', '1')
+A.nvim_set_var('NERDTreeDirArrows', '1')
+A.nvim_set_var('NERDTreQuitOnOpen', '1')
+-- Close vim when NERDTree is the last buffer
+vim.cmd([[
+  autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
+]])
 
 -- Lualine
 require('lualine').setup {
@@ -224,11 +320,22 @@ require('lualine').setup {
     theme = 'palenight',
     component_separators = { left = '', right = ''},
     section_separators = { left = '', right = ''},
-    globalstatus = true,
+    -- globalstatus = true,
     extensions = {'nerdtree'},
     ignore_focus = {'nerdtree'}
   }
 }
 
-end)
+-- FTerm config
+require('FTerm').setup({
+  border = 'single',
+  dimensions = {
+    height = 0.5,
+    width = 0.7,
+    x = 0.5,
+    y = 0.5,
+  },
+  blend = 0,
+})
 
+end)

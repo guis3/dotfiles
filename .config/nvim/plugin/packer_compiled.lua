@@ -70,7 +70,7 @@ time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
   ["alpha-nvim"] = {
-    config = { "\27LJ\2\n�\b\0\0\t\0*\1P6\0\0\0'\2\1\0B\0\2\0026\1\0\0'\3\2\0B\1\2\0029\2\3\0019\2\4\0025\3\6\0=\3\5\0029\2\3\0019\2\a\0024\3\t\0009\4\b\1'\6\t\0'\a\n\0'\b\v\0B\4\4\2>\4\1\0039\4\b\1'\6\f\0'\a\r\0'\b\14\0B\4\4\2>\4\2\0039\4\b\1'\6\15\0'\a\16\0'\b\17\0B\4\4\2>\4\3\0039\4\b\1'\6\18\0'\a\19\0'\b\20\0B\4\4\2>\4\4\0039\4\b\1'\6\21\0'\a\22\0'\b\23\0B\4\4\2>\4\5\0039\4\b\1'\6\24\0'\a\25\0'\b\26\0B\4\4\2>\4\6\0039\4\b\1'\6\27\0'\a\28\0'\b\29\0B\4\4\2>\4\a\0039\4\b\1'\6\30\0'\a\31\0'\b \0B\4\4\0?\4\0\0=\3\5\0026\2!\0009\2\"\2'\4#\0B\2\2\2\18\5\2\0009\3$\2'\6%\0B\3\3\2\18\6\2\0009\4&\2B\4\2\0019\4\3\0019\4'\4=\3\5\0049\4(\0009\6)\1B\4\2\1K\0\1\0\topts\nsetup\vfooter\nclose\a*a\tread\ffortune\npopen\aio\f:qa<CR>\19  Quit NVIM\6q\24<cmd>PackerSync<CR>\24  Update plugins\6u)<cmd>:e ~/.config/nvim/init.lua <CR>\23  Configuration\6c\30<cmd>:BookmarkShowAll<CR>\19  Bookmarks\6m\23<cmd>:NERDTree<CR>\18  NerdTree\6n\17:History<CR>\31  Recently opened files\6h\r:FZF<CR>\19  Find file\6f\18<cmd>ene <CR>\18  New file\6e\vbutton\fbuttons\1\t\0\0004     )            )             (        *     4  ( /(         ( /(             )\\ )   (  `    4  )\\())  (     )\\())   (   (   (()/(   )\\))(   4 ((_)\\   )\\   ((_)\\    )\\  )\\   /(_)) ((_)()\\  4  _((_) ((_)    ((_)  ((_)((_) (_))   (_()((_) 4 | \\| | | __|  / _ \\  \\ \\ / /  |_ _|  |  \\/  | 4 | .` | | _|  | (_) |  \\ V /    | |   | |\\/| | 4 |_|\\_| |___|  \\___/    \\_/    |___|  |_|  |_| \bval\vheader\fsection\27alpha.themes.dashboard\nalpha\frequire\17����\4\0" },
+    config = { "\27LJ\2\n5\0\0\4\1\2\0\b-\0\0\0006\1\0\0009\1\1\1-\3\0\0\21\3\3\0B\1\2\0028\0\1\0L\0\2\0\2�\vrandom\tmath�\1\0\0\t\0\14\0\0266\0\0\0009\0\1\0006\2\2\0B\0\2\2\21\0\0\0006\1\3\0009\1\4\1'\3\5\0B\1\2\0026\2\0\0009\2\6\2B\2\1\2'\3\a\0009\4\b\2'\5\t\0009\6\n\2'\a\t\0009\b\v\2&\3\b\3\18\4\1\0'\5\f\0\18\6\0\0'\a\r\0\18\b\3\0&\4\b\4L\4\2\0\r plugins\f    \npatch\nminor\6.\nmajor\r    v\fversion!  %d-%m-%Y    %H:%M:%S\tdate\aos\19packer_plugins\rtbl_keys\bvim�\17\1\0\f\0006\0n6\0\0\0'\2\1\0B\0\2\0026\1\0\0'\3\2\0B\1\2\0026\2\3\0009\2\4\0026\4\5\0009\4\6\4B\4\1\0A\2\0\0015\2\a\0003\3\b\0003\4\t\0005\5\n\0004\6\v\0005\a\v\0005\b\f\0=\b\r\a>\a\1\0069\a\14\1'\t\15\0'\n\16\0'\v\17\0B\a\4\2>\a\2\0069\a\14\1'\t\18\0'\n\19\0'\v\20\0B\a\4\2>\a\3\0069\a\14\1'\t\21\0'\n\22\0'\v\23\0B\a\4\2>\a\4\0069\a\14\1'\t\24\0'\n\25\0'\v\26\0B\a\4\2>\a\5\0069\a\14\1'\t\27\0'\n\28\0'\v\29\0B\a\4\2>\a\6\0069\a\14\1'\t\30\0'\n\31\0'\v \0B\a\4\2>\a\a\0069\a\14\1'\t!\0'\n\"\0'\v#\0B\a\4\2>\a\b\0069\a\14\1'\t$\0'\n%\0'\v&\0B\a\4\2>\a\t\0065\a'\0>\a\n\0069\a(\0019\a)\a=\5*\a9\a(\0019\a)\a9\a\r\a'\b,\0=\b+\a9\a(\0019\a-\a=\6*\a9\a(\0019\a-\a9\a\r\a)\b\1\0=\b.\a9\a(\0019\a/\a\18\b\4\0B\b\1\2=\b*\a9\a(\0019\a/\a9\a\r\a'\b0\0=\b+\a9\a1\0009\t\r\1B\a\2\0016\a2\0009\a3\a'\t4\0B\a\2\0016\a2\0009\a3\a'\t5\0B\a\2\0012\0\0�K\0\1\0_ autocmd User AlphaReady set showtabline=0 | autocmd BufUnload <buffer> set showtabline=1 3 autocmd FileType alpha setlocal nofoldenable \bcmd\bvim\nsetup\fComment\vfooter\fspacing\fbuttons\16Conditional\ahl\bval\vheader\fsection\1\0\2\bval\3\0\ttype\fpadding\f:qa<CR>\19  Quit NVIM\6q\24<cmd>PackerSync<CR>\24  Update plugins\6u)<cmd>:e ~/.config/nvim/init.lua <CR>\23  Configuration\6c\30<cmd>:BookmarkShowAll<CR>\19  Bookmarks\6m\23<cmd>:NERDTree<CR>\18  NerdTree\6n\17:History<CR>\31  Recently opened files\6h\r:FZF<CR>\19  Find file\6f\18<cmd>ene <CR>\18  New file\6e\vbutton\topts\1\0\2\ahl\vString\rposition\vcenter\1\0\2\bval\16Quick Links\ttype\ttext\1\v\0\0~  ███▄    █ ▓█████  ▒█████   ██▒   █▓ ██▓ ███▄ ▄███▓ �\1  ██ ▀█   █ ▓█   ▀ ▒██▒  ██▒▓██░   █▒▓██▒▓██▒▀█▀ ██▒ �\1 ▓██  ▀█ ██▒▒███   ▒██░  ██▒ ▓██  █▒░▒██▒▓██    ▓██░ �\1 ▓██▒  ▐▌██▒▒▓█  ▄ ▒██   ██░  ▒██ █░░░██░▒██    ▒██  �\1 ▒██░   ▓██░░▒████▒░ ████▓▒░   ▒▀█░  ░██░▒██▒   ░██▒ p ░ ▒░   ▒ ▒ ░░ ▒░ ░░ ▒░▒░▒░    ░ ▐░  ░▓  ░ ▒░   ░  ░ d ░ ░░   ░ ▒░ ░ ░  ░  ░ ▒ ▒░    ░ ░░   ▒ ░░  ░      ░ V    ░   ░ ░    ░   ░ ░ ░ ▒       ░░   ▒ ░░      ░    J          ░    ░  ░    ░ ░        ░   ░         ░    <                                 ░                   \0\0\1\5\0\0\vString\15Identifier\fKeyword\vNumber\ttime\aos\15randomseed\tmath\27alpha.themes.dashboard\nalpha\frequire\0" },
     loaded = true,
     path = "/home/gui/.local/share/nvim/site/pack/packer/start/alpha-nvim",
     url = "https://github.com/goolord/alpha-nvim"
@@ -84,6 +84,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/gui/.local/share/nvim/site/pack/packer/start/catppuccin",
     url = "https://github.com/catppuccin/nvim"
+  },
+  ["fterm.nvim"] = {
+    loaded = true,
+    path = "/home/gui/.local/share/nvim/site/pack/packer/start/fterm.nvim",
+    url = "https://github.com/numtostr/fterm.nvim"
   },
   ["fzf.vim"] = {
     loaded = true,
@@ -100,11 +105,6 @@ _G.packer_plugins = {
     path = "/home/gui/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim",
     url = "https://github.com/lukas-reineke/indent-blankline.nvim"
   },
-  ["limelight.vim"] = {
-    loaded = true,
-    path = "/home/gui/.local/share/nvim/site/pack/packer/start/limelight.vim",
-    url = "https://github.com/junegunn/limelight.vim"
-  },
   ["lualine.nvim"] = {
     loaded = true,
     path = "/home/gui/.local/share/nvim/site/pack/packer/start/lualine.nvim",
@@ -114,6 +114,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/gui/.local/share/nvim/site/pack/packer/start/nerdtree",
     url = "https://github.com/scrooloose/nerdtree"
+  },
+  ["nvim-treesitter"] = {
+    loaded = true,
+    path = "/home/gui/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
+    url = "https://github.com/nvim-treesitter/nvim-treesitter"
   },
   ["nvim-web-devicons"] = {
     loaded = true,
@@ -165,11 +170,6 @@ _G.packer_plugins = {
     path = "/home/gui/.local/share/nvim/site/pack/packer/start/vim-nerdtree-syntax-highlight",
     url = "https://github.com/tiagofumo/vim-nerdtree-syntax-highlight"
   },
-  ["vim-rainbow"] = {
-    loaded = true,
-    path = "/home/gui/.local/share/nvim/site/pack/packer/start/vim-rainbow",
-    url = "https://github.com/frazrepo/vim-rainbow"
-  },
   ["vim-surround"] = {
     loaded = true,
     path = "/home/gui/.local/share/nvim/site/pack/packer/start/vim-surround",
@@ -185,7 +185,7 @@ _G.packer_plugins = {
 time([[Defining packer_plugins]], false)
 -- Config for: alpha-nvim
 time([[Config for alpha-nvim]], true)
-try_loadstring("\27LJ\2\n�\b\0\0\t\0*\1P6\0\0\0'\2\1\0B\0\2\0026\1\0\0'\3\2\0B\1\2\0029\2\3\0019\2\4\0025\3\6\0=\3\5\0029\2\3\0019\2\a\0024\3\t\0009\4\b\1'\6\t\0'\a\n\0'\b\v\0B\4\4\2>\4\1\0039\4\b\1'\6\f\0'\a\r\0'\b\14\0B\4\4\2>\4\2\0039\4\b\1'\6\15\0'\a\16\0'\b\17\0B\4\4\2>\4\3\0039\4\b\1'\6\18\0'\a\19\0'\b\20\0B\4\4\2>\4\4\0039\4\b\1'\6\21\0'\a\22\0'\b\23\0B\4\4\2>\4\5\0039\4\b\1'\6\24\0'\a\25\0'\b\26\0B\4\4\2>\4\6\0039\4\b\1'\6\27\0'\a\28\0'\b\29\0B\4\4\2>\4\a\0039\4\b\1'\6\30\0'\a\31\0'\b \0B\4\4\0?\4\0\0=\3\5\0026\2!\0009\2\"\2'\4#\0B\2\2\2\18\5\2\0009\3$\2'\6%\0B\3\3\2\18\6\2\0009\4&\2B\4\2\0019\4\3\0019\4'\4=\3\5\0049\4(\0009\6)\1B\4\2\1K\0\1\0\topts\nsetup\vfooter\nclose\a*a\tread\ffortune\npopen\aio\f:qa<CR>\19  Quit NVIM\6q\24<cmd>PackerSync<CR>\24  Update plugins\6u)<cmd>:e ~/.config/nvim/init.lua <CR>\23  Configuration\6c\30<cmd>:BookmarkShowAll<CR>\19  Bookmarks\6m\23<cmd>:NERDTree<CR>\18  NerdTree\6n\17:History<CR>\31  Recently opened files\6h\r:FZF<CR>\19  Find file\6f\18<cmd>ene <CR>\18  New file\6e\vbutton\fbuttons\1\t\0\0004     )            )             (        *     4  ( /(         ( /(             )\\ )   (  `    4  )\\())  (     )\\())   (   (   (()/(   )\\))(   4 ((_)\\   )\\   ((_)\\    )\\  )\\   /(_)) ((_)()\\  4  _((_) ((_)    ((_)  ((_)((_) (_))   (_()((_) 4 | \\| | | __|  / _ \\  \\ \\ / /  |_ _|  |  \\/  | 4 | .` | | _|  | (_) |  \\ V /    | |   | |\\/| | 4 |_|\\_| |___|  \\___/    \\_/    |___|  |_|  |_| \bval\vheader\fsection\27alpha.themes.dashboard\nalpha\frequire\17����\4\0", "config", "alpha-nvim")
+try_loadstring("\27LJ\2\n5\0\0\4\1\2\0\b-\0\0\0006\1\0\0009\1\1\1-\3\0\0\21\3\3\0B\1\2\0028\0\1\0L\0\2\0\2�\vrandom\tmath�\1\0\0\t\0\14\0\0266\0\0\0009\0\1\0006\2\2\0B\0\2\2\21\0\0\0006\1\3\0009\1\4\1'\3\5\0B\1\2\0026\2\0\0009\2\6\2B\2\1\2'\3\a\0009\4\b\2'\5\t\0009\6\n\2'\a\t\0009\b\v\2&\3\b\3\18\4\1\0'\5\f\0\18\6\0\0'\a\r\0\18\b\3\0&\4\b\4L\4\2\0\r plugins\f    \npatch\nminor\6.\nmajor\r    v\fversion!  %d-%m-%Y    %H:%M:%S\tdate\aos\19packer_plugins\rtbl_keys\bvim�\17\1\0\f\0006\0n6\0\0\0'\2\1\0B\0\2\0026\1\0\0'\3\2\0B\1\2\0026\2\3\0009\2\4\0026\4\5\0009\4\6\4B\4\1\0A\2\0\0015\2\a\0003\3\b\0003\4\t\0005\5\n\0004\6\v\0005\a\v\0005\b\f\0=\b\r\a>\a\1\0069\a\14\1'\t\15\0'\n\16\0'\v\17\0B\a\4\2>\a\2\0069\a\14\1'\t\18\0'\n\19\0'\v\20\0B\a\4\2>\a\3\0069\a\14\1'\t\21\0'\n\22\0'\v\23\0B\a\4\2>\a\4\0069\a\14\1'\t\24\0'\n\25\0'\v\26\0B\a\4\2>\a\5\0069\a\14\1'\t\27\0'\n\28\0'\v\29\0B\a\4\2>\a\6\0069\a\14\1'\t\30\0'\n\31\0'\v \0B\a\4\2>\a\a\0069\a\14\1'\t!\0'\n\"\0'\v#\0B\a\4\2>\a\b\0069\a\14\1'\t$\0'\n%\0'\v&\0B\a\4\2>\a\t\0065\a'\0>\a\n\0069\a(\0019\a)\a=\5*\a9\a(\0019\a)\a9\a\r\a'\b,\0=\b+\a9\a(\0019\a-\a=\6*\a9\a(\0019\a-\a9\a\r\a)\b\1\0=\b.\a9\a(\0019\a/\a\18\b\4\0B\b\1\2=\b*\a9\a(\0019\a/\a9\a\r\a'\b0\0=\b+\a9\a1\0009\t\r\1B\a\2\0016\a2\0009\a3\a'\t4\0B\a\2\0016\a2\0009\a3\a'\t5\0B\a\2\0012\0\0�K\0\1\0_ autocmd User AlphaReady set showtabline=0 | autocmd BufUnload <buffer> set showtabline=1 3 autocmd FileType alpha setlocal nofoldenable \bcmd\bvim\nsetup\fComment\vfooter\fspacing\fbuttons\16Conditional\ahl\bval\vheader\fsection\1\0\2\bval\3\0\ttype\fpadding\f:qa<CR>\19  Quit NVIM\6q\24<cmd>PackerSync<CR>\24  Update plugins\6u)<cmd>:e ~/.config/nvim/init.lua <CR>\23  Configuration\6c\30<cmd>:BookmarkShowAll<CR>\19  Bookmarks\6m\23<cmd>:NERDTree<CR>\18  NerdTree\6n\17:History<CR>\31  Recently opened files\6h\r:FZF<CR>\19  Find file\6f\18<cmd>ene <CR>\18  New file\6e\vbutton\topts\1\0\2\ahl\vString\rposition\vcenter\1\0\2\bval\16Quick Links\ttype\ttext\1\v\0\0~  ███▄    █ ▓█████  ▒█████   ██▒   █▓ ██▓ ███▄ ▄███▓ �\1  ██ ▀█   █ ▓█   ▀ ▒██▒  ██▒▓██░   █▒▓██▒▓██▒▀█▀ ██▒ �\1 ▓██  ▀█ ██▒▒███   ▒██░  ██▒ ▓██  █▒░▒██▒▓██    ▓██░ �\1 ▓██▒  ▐▌██▒▒▓█  ▄ ▒██   ██░  ▒██ █░░░██░▒██    ▒██  �\1 ▒██░   ▓██░░▒████▒░ ████▓▒░   ▒▀█░  ░██░▒██▒   ░██▒ p ░ ▒░   ▒ ▒ ░░ ▒░ ░░ ▒░▒░▒░    ░ ▐░  ░▓  ░ ▒░   ░  ░ d ░ ░░   ░ ▒░ ░ ░  ░  ░ ▒ ▒░    ░ ░░   ▒ ░░  ░      ░ V    ░   ░ ░    ░   ░ ░ ░ ▒       ░░   ▒ ░░      ░    J          ░    ░  ░    ░ ░        ░   ░         ░    <                                 ░                   \0\0\1\5\0\0\vString\15Identifier\fKeyword\vNumber\ttime\aos\15randomseed\tmath\27alpha.themes.dashboard\nalpha\frequire\0", "config", "alpha-nvim")
 time([[Config for alpha-nvim]], false)
 if should_profile then save_profiles() end
 
