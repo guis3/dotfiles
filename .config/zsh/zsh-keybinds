@@ -1,0 +1,17 @@
+#################################
+########## KEYBINDINGS ##########
+#################################
+
+# Delete
+bindkey '\e[3~' delete-char
+
+# Ctrl+Left/Right - move cursor to previous/next word
+bindkey '^[[1;5D' backward-word
+bindkey '^[[1;5C' forward-word
+
+# F2 - Display system info
+bindkey '^[OQ' system_status_display
+
+# F3 - Search processes
+bindkey -s '^[OR' "^ups -aux | grep "
+
