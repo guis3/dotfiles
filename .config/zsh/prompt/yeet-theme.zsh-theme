@@ -82,7 +82,7 @@ function precmd() {
 
 #Prompts
 local prompt_git='%{$GIT_PROMPT_INFO%}$(git_prompt_info)$(virtualenv_prompt_info)%{$GIT_DIRTY_COLOR%}$(git_prompt_status) %{$reset_color%}'
-local prefix="%{$fg[blue]%}%n@%m %{$fg[magenta]%}%B  %1~%b"
+local prefix="%{$fg[blue]%}%n@%m %{$fg[magenta]%}%B %1~%b"
 local suffix='%(?.%{$PROMPT_SUCCESS_COLOR}.%{$PROMPT_FAILURE_COLOR})%}%  '
 
 PROMPT="${prefix}${prompt_git}${suffix}%{$reset_color%}"
