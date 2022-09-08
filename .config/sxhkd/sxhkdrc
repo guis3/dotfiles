@@ -40,6 +40,10 @@ super + Escape
 ## bspwm hotkeys
 #
 
+# lock screen
+super + alt + Delete
+	bash $HOME/scripts/lockscreen.sh
+
 # quit/restart bspwm
 ctrl + shift + {q,r}
 	bspc {quit,wm -r}

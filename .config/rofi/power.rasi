@@ -1,13 +1,15 @@
 @theme "catppuccin-frappe"
 
 window {
-width: 600;
+  x-offset: 652px;
+  y-offset: -387px;
+  width: 600;
   height: 200;
 }
 
 listview {
   border: 0px 0px 0px;
-  padding: 3px 0px 0px;
+  padding: 0px 0px 0px;
   margin: 10px 0px 0px 0px;
   text-color: @fg-col;
   background-color: @bg-col;

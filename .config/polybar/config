@@ -51,6 +51,7 @@ radius = 0
 fixed-center = true
 
 background = ${colors.background}
+;background = #00000000
 foreground = ${colors.foreground}
 
 line-size = 3
@@ -72,10 +73,13 @@ font-3 = JetBrainsMono Nerd Font:size=14;4
 font-4 = Weather Icons:size=13;3
 font-5 = Unifont:size=12;3
 
-modules-left = mod bspwm 
-modules-center = date weather
-modules-right = wpm updates alsa cpu memory network tray
+;modules-left = mod bspwm 
+;modules-center = date weather
+;modules-right = wpm updates alsa cpu memory network tray powermenu
 
+modules-left = date weather 
+modules-center = bspwm
+modules-right = updates alsa cpu memory network tray powermenu
 
 tray-position = 0
 tray-padding = 0

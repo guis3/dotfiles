@@ -197,7 +197,7 @@ interval = 600
 label-font = 5
 label-foreground = ${colors.foreground}
 
-click-left = firefox https://openweathermap.org/city/5937612
+click-left = brave https://openweathermap.org/city/5937612
 
 [module/updates]
 type = custom/script
@@ -244,3 +244,39 @@ type = custom/script
 exec = echo " "
 
 click-left = bash $HOME/.config/polybar/scripts/tray.sh
+
+[module/powermenu]
+type = custom/script
+exec = echo "  "
+
+format-foreground = ${colors.red}
+
+click-left = rofi -show power-menu -modi power-menu:rofi-power-menu -theme /home/gui/.config/rofi/power.rasi
+
+[module/spotify]
+type = custom/script
+tail = true
+interval = 1
+; prefix symbol is shown before the text
+format-prefix = "<prefix-symbol>"
+format = <label>
+exec = ~/.config/polybar/scripts/scroll_spotify_status.sh
+
+[module/spotify-prev]
+type = custom/script
+exec = echo "<previous-song-symbol>"
+format = <label>
+click-left = playerctl previous -p spotify
+
+[module/spotify-play-pause]
+type = custom/ipc
+hook-0 = echo "<playing-symbol>"
+hook-1 = echo "<pause-symbol>"
+initial = 1
+click-left = playerctl play-pause -p spotify
+
+[module/spotify-next]
+type = custom/script
+exec = echo "next-song-symbol"
+format = <label>
+click-left = playerctl next -p spotify
