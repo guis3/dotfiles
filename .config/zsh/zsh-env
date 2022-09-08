@@ -1,7 +1,7 @@
 ## Environment Variables
 
 export EDITOR='nvim'
-export BROWSER='firefox'
+export BROWSER='brave'
 export ZDOTDIR=$HOME/.config/zsh
 export XDG_CONFIG_HOME=$HOME/.config
 export SUDO_ASKPASS='/usr/bin/systemd-ask-password'

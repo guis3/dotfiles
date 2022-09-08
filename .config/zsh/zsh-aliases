@@ -40,6 +40,7 @@ alias pacq='pacman -Qs'
 
 # yay
 alias yays='yay -S'
+alias yayr='yay -R'
 alias yayu='yay -Syyu'
 
 # Apps
@@ -53,6 +54,8 @@ alias pwd='ptpwd'
 alias cp='ptcp'
 alias cat='bat'
 alias grep='grep --color=auto'
+alias rg='batgrep'
+alias man='batman'
 
 # Misc
 alias ..='cd ..'
