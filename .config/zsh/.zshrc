@@ -20,6 +20,7 @@ bindkey -e
 setopt autocd globdots nomatch menucomplete
 setopt interactive_comments
 unsetopt BEEP
+unsetopt complete_aliases
 
 # On-demand rehash
 zshcache_time="$(date +%s%N)"

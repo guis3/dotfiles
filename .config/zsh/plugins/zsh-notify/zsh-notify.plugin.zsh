@@ -12,21 +12,21 @@ else
 fi
 
 zstyle ':notify:*' plugin-dir "$plugin_dir"
-zstyle ':notify:*' command-complete-timeout 10 
+zstyle ':notify:*' command-complete-timeout 10
 zstyle ':notify:*' error-log /dev/stderr
 zstyle ':notify:*' notifier zsh-notify
-zstyle ':notify:*' expire-time 15
+zstyle ':notify:*' expire-time 0
 zstyle ':notify:*' app-name 'Alacritty'
 zstyle ':notify:*' notifier zsh-notify
-zstyle ':notify:*' success-title 'Command Finished (#{time_elapsed})'
+zstyle ':notify:*' success-title 'Command Finished (in #{time_elapsed})'
 zstyle ':notify:*' success-sound ''
 zstyle ':notify:*' success-icon ''
-zstyle ':notify:*' error-title 'Command Failed (#{time_elapsed})'
+zstyle ':notify:*' error-title '#Command Failed (in #{time_elapsed})'
 zstyle ':notify:*' error-sound ''
 zstyle ':notify:*' error-icon ''
-zstyle ':notify:*' disable-urgent yes
-zstyle ':notify:*' activate-terminal no
-zstyle ':notify:*' always-check-active-window yes
+zstyle ':notify:*' disable-urgent no
+zstyle ':notify:*' activate-terminal yes
+zstyle ':notify:*' always-check-active-window no
 zstyle ':notify:*' check-focus yes
 zstyle ':notify:*' blacklist-regex 'vim'
 zstyle ':notify:*' enable-on-ssh no

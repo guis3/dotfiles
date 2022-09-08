@@ -56,8 +56,8 @@ alias cat='bat'
 alias grep='grep --color=auto'
 alias rg='batgrep'
 alias man='batman'
+alias mkdir='mkdir -p'
 
 # Misc
-alias ..='cd ..'
 alias bonsai='cbonsai -S --time 0.05 --life 50 --multiplier 6 --base 1'
 alias pipes='pipes.sh -p 1 -f 30 -r 1500'
