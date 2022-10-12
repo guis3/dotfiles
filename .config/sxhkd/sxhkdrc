@@ -7,6 +7,10 @@
 super + Return
 	alacritty
 
+# Web Browser
+super + w
+	brave
+
 # Word lookup script
 super + d
 	~/scripts/word-lookup.sh
@@ -70,11 +74,15 @@ super + g
 
 # set the window state
 super + {t,shift + t,s,f}
-	bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
+	bspc node -t {\~tiled,\~pseudo_tiled,\~floating,\~fullscreen}
 
 # set the node flags
 super + ctrl + {m,x,y,z}
 	bspc node -g {marked,locked,sticky,private}
+
+# Toggle window gaps
+super + u
+	bspc config window_gap {0, 9}
 
 #
 # focus/swap
