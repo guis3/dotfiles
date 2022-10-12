@@ -37,7 +37,7 @@ mouse_right = close_all
 mouse_middle = close_current
 
 # Font
-font = "RobotoMono Nerd Font 12"
+font = "Iosevka Term 14"
 word_wrap = yes
 
 # Icon
