@@ -117,7 +117,6 @@ font:
     #   - (Linux/BSD) monospace
     #   - (Windows) Consolas
     # family: Source Code Pro
-    # family: RobotoMono Nerd Font
     # family: JetBrains Mono
     # family: Fira Code
     family: Iosevka Term
@@ -133,7 +132,6 @@ font:
     # value specified for the normal font.
     # family: Source Code Pro
     # family: CodeNewRoman Nerd Font
-    # family: RobotoMono Nerd Font
     # family: Hack
     # family: JetBrains Mono
     # family: UbuntuMono Nerd Font
@@ -153,7 +151,6 @@ font:
     # value specified for the normal font.
     # family: Source Code Pro
     # family: CodeNewRoman Nerd Font
-    # family: RobotoMono Nerd Font
     # family: Hack
     # family: JetBrains Mono
     # family: UbuntuMono Nerd Font
@@ -173,7 +170,6 @@ font:
     # value specified for the normal font.
     # family: Source Code Pro
     # family: CodeNewRoman Nerd Font
-    # family: RobotoMono Nerd Font
     # family: Hack
     # family: JetBrains Mono
     # family: UbuntuMono Nerd Font
